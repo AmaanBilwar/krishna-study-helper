@@ -1,4 +1,3 @@
-left sidebar for chat history
-move the chat to the right side of the screen 
-the center of the screen should have tthe rendering of the actual flow charts
-make those charts downloadable and shareable (maybe quicklinks of some sorts?)
+we need to improve the sys prompt so that everyflowghart block explaisn the concept and whta not as a study helper not jsut a flow chart generator
+need to improve ui 
+need to connect a db
