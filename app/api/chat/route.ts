@@ -1,5 +1,6 @@
 import {
   convertToModelMessages,
+  stepCountIs,
   streamText,
   type UIMessage,
 } from "ai";
@@ -10,6 +11,7 @@ import {
 } from "@/lib/chat/document-context";
 import { GOOGLE_API_KEY_ENV, MAX_OUTPUT_TOKENS } from "@/lib/chat/config";
 import { getChatModel } from "@/lib/chat/model";
+import { chatTools } from "@/lib/chat/tools/generate-flowchart";
 
 export const maxDuration = 60;
 
@@ -65,6 +67,8 @@ export async function POST(request: Request) {
       },
     ),
     messages: await convertToModelMessages(messages),
+    tools: chatTools,
+    stopWhen: stepCountIs(3),
     maxOutputTokens: MAX_OUTPUT_TOKENS,
   });
 
